@@ -77,7 +77,7 @@ namespace ConferenceTracker.Controllers
             var presentation = _presentationRepository.GetPresentation((int)id);
             if (presentation == null)
             {
-                _logger.LogInformation("Presentation id," + id + ", was not found.");
+                _logger.LogWarning("Presentation id," + id + ", was not found.");
                 return NotFound();
             }
             ViewData["SpeakerId"] = new SelectList(_speakerRepository.GetAllSpeakers(), "Id", "Id", presentation?.SpeakerId);
